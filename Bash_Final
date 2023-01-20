@@ -3,16 +3,42 @@
 # SCRIPT DE BASH PARA ORGANIZAR, PROCURAR, COMPRIMIR E EXTRAIR FICHEIROS
 
 
+
+
+
+
+
 # Este comando vai ler todos os ficheiros de uma certo diretório e organiza-os por tamanho em ordem reversa. Isto é tudo guardado no "organizar_ficheiros.txt"
 
-ls -lSr | awk '{print $9}' > organizar_ficheiros.txt
+read -p "Enter the path to the directory you want to sort files in: " dir
 
 
-# É pedido ao utilizador o diretório onde o ficheiro se encontra e o nome do ficheiro a procurar
+ls -lSr $dir | awk '{print $9}' > organizar_ficheiros.txt
+
+# Este comando vai procurar um ficheiro dentro do diretório pedido. É pedido ao utilizador o diretório onde o ficheiro se encontra e o nome do ficheiro a procurar
 
 
 
-find /path/to/dir -name "filename"
+read -p "Introduza o nome do ficheiro que procura: " procura
+read -p "Introduza o diretório onde o ficheiro se encontra: " diretorio
+
+grep -r "$procura" $diretorio
 
 
-# 
+# Este comando vai comprimir ficheiros ou diretórios. 
+
+read -p "Introduza o nome do ficheiro ou ficheiro que pretende comprimir: " arquivo
+read -p "Introduza o diretório onde o ficheiro irá ser comprimido: " dir_compr
+
+tar -cvzf $dir_compr.gz $arquivo
+
+
+# Este comando vai extrair um ficheiro comprimido
+
+read -p "Introduza o nome do ficheiro que pretende extrair: " ficheiro
+read -p "Introduza o diretório onde o ficheiro irá ser comprimido: " dir_extr
+
+tar -xvzf $ficheiro -C $dir_extr
+
+
+
