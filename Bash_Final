@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# SCRIPT DE BASH PARA ORGANIZAR, PROCURAR, COMPRIMIR E EXTRAIR FICHEIROS
+
+
+# Este comando vai ler todos os ficheiros de uma certo diretório e organiza-os por tamanho em ordem reversa. Isto é tudo guardado no "organizar_ficheiros.txt"
+
+ls -lSr | awk '{print $9}' > organizar_ficheiros.txt
+
+
+# É pedido ao utilizador o diretório onde o ficheiro se encontra e o nome do ficheiro a procurar
+
+
+
+find /path/to/dir -name "filename"
+
+
+# 
